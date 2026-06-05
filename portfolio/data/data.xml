@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proyectos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="data.xsd">
+    <proyecto>
+        <titulo>Hollow Knight wiki</titulo>
+        <img>img/Hollow_Knight_(Verse).webp</img>
+        <descripcion>Proyecto en HTML y CSS sobre una Wikipedia del videojuego Metroidvania Hollow Knight </descripcion>
+    </proyecto>
+
+     <proyecto>
+        <titulo>Colección Dark Souls</titulo>
+        <img>img/DarkSoulsLogo.webp</img> 
+        <descripcion>Proyecto en HTML, CSS y JavaScript, de colección de juegos de la saga Souls y similares </descripcion>
+    </proyecto>
+
+     <proyecto>
+        <titulo>Gestor de películas</titulo>
+        <img>img/github_logo.webp</img>
+        <descripcion>Proyecto de un gestor de peliculas hecho en java</descripcion>
+     </proyecto>
+
+     <proyecto>
+        <titulo>Gestor de reservas</titulo>
+        <img>img/github_logo.webp</img>
+        <descripcion>Proyecto de un gestor de reservas hecho en java</descripcion>
+    </proyecto> 
+

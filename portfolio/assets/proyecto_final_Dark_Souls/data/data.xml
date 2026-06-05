@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Lista de juegos souls (puede que añada más adelante Sekiro o DLCs) -->
+<juegos xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="data.xsd">
+
+    <!-- Demon Souls -->
+    <juego id="c1">
+        <titulo>Demon Souls</titulo>
+        <descripcion>
+            Primer juego de la saga, el que lo empezó todo. 
+            La jugabilidad se siente un poco vieja hoy en día, pero aún así marcó el camino para los demás.
+        </descripcion>
+        <imagen>img/Demon_Souls.jpg</imagen>
+        <nivel>avanzado</nivel>
+        <horas>25-35</horas>
+        <categoria>Lento</categoria>
+    </juego>
+
+    <!-- Dark Souls 1 (mi favorito probablemente) -->
+    <juego id="c2">
+        <titulo>Dark Souls 1</titulo>
+        <descripcion>
+            El juego que prácticamente definió el género. 
+            Mejora mucho lo anterior y sigue siendo obligatorio jugarlo si te gustan los videojuegos en general.
+        </descripcion>
+        <imagen>img/Dark_Souls1_Portada.webp</imagen>
+        <nivel>intermedio</nivel>
+        <horas>30-50</horas>
+        <categoria>Lento</categoria>
+    </juego>
+
+    <!-- Dark Souls 2 -->
+    <juego id="c3">
+        <titulo>Dark Souls II</titulo>
+        <descripcion>
+            No lo dirigió Miyazaki y se nota un poco... 
+            Tiene cosas raras en mapas y enemigos, pero sigue siendo entretenido a su manera.
+        </descripcion>
+        <imagen>img/Dark_Souls_II.webp</imagen>
+        <nivel>avanzado</nivel>
+        <horas>35-45</horas>
+        <categoria>Normal</categoria>
+    </juego>
+
+    <!-- Dark Souls 3 -->
+    <juego id="c4">
+        <titulo>Dark Souls 3</titulo>
+        <descripcion>
+            Cierre bastante épico de la trilogía. 
+            Mejora muchísimo los gráficos y tiene algunos de los mejores jefes.
+            Muy disfrutable aunque ya ibas algo curtido de los anteriores.
+        </descripcion>
+        <imagen>img/Dark_Souls_III.webp</imagen>
+        <nivel>intermedio</nivel>
+        <horas>30-45</horas>
+        <categoria>Normal</categoria>
+    </juego>
+
+    <!-- Bloodborne -->
+    <juego id="c5">
+        <titulo>Bloodborne</titulo>
+        <descripcion>
+            Ambientación brutal en Yharnam, mucho más rápido y agresivo.
+            Probablemente el mejor en cuanto a historia y atmósfera (opinión personal).
+            Una pena que siga siendo exclusivo de Play 4...
+        </descripcion>
+        <imagen>img/BloodBorne.jpg</imagen>
+        <nivel>intermedio</nivel>
+        <horas>30-40</horas>
+        <categoria>Frenetico</categoria>
+    </juego>
+
+    <!-- Elden Ring -->
+    <juego id="c6">
+        <titulo>Elden Ring</titulo>
+        <descripcion>
+            El más accesible de todos, pero también el más grande.
+            Mundo abierto enorme, bosses repetidos a veces (no todo es perfecto),
+            pero en general muy completo y con muchísimas horas de juego.
+        </descripcion>
+        <imagen>img/Elden_Ring.webp</imagen>
+        <nivel>principiante</nivel>
+        <horas>50-60</horas>
+        <categoria>Frenetico</categoria>
+    </juego>
+
+    <!-- Nota: igual debería ordenar por año o algo así, ahora mismo están como me acordé -->
+
+</juegos>

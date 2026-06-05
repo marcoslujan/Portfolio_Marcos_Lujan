@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Meta viewport (creo que así funciona bien, aunque lo he visto escrito sin espacios también) -->
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+
+    <title>Proyecto Final</title>
+
+    <!-- Hoja de estilos principal -->
+    <link rel="stylesheet" href="styles/index.css">
+
+    <!-- Script JS (lo puse con defer porque si no a veces no cargaba bien) -->
+    <script src="script.js" defer></script>
+</head>
+
+<body class="body-grid">
+
+    <!-- Header muy básico -->
+    <header class="claseHeader">
+        <h1>SAGA SOULS</h1> <!-- igual luego meto un logo aquí -->
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="claseMain">
+
+        <!-- Botón que lleva a la lista -->
+        <button id="cargar" class="button">
+
+            <!-- Nota: sé que un <a> dentro de <button> no es lo mejor pero funciona 😅 -->
+            <a href="main.html">
+                Lista Souls
+            </a>
+
+        </button>
+
+        <!-- pensé en añadir más botones pero lo dejé simple de momento -->
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>
+            &copy; 2026 - Daniel Pedregosa, Marcos Luján
+        </p>
+    </footer>
+
+    <!-- TODO: mejorar accesibilidad (roles, etc.) cuando tenga tiempo -->
+
+</body>
+
+</html>

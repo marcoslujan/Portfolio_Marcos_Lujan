@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Vale, este schema lo hice para organizar unos juegos... puede que luego lo amplíe -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <!-- Nodo principal, básicamente un contenedor de juegos -->
+    <xs:element name="juegos">
+        <xs:complexType>
+            <xs:sequence>
+                <!-- No limito la cantidad porque no sé cuántos habrá realmente -->
+                <xs:element name="juego" type="tipoJuego" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <!-- Definición del objeto juego -->
+    <xs:complexType name="tipoJuego">
+        <xs:sequence>
+            <!-- Igual aquí podría haber usado otro nombre tipo "nombre", pero bueno -->
+            <xs:element name="titulo" type="xs:string"/>
+
+            <!-- Descripción básica, nada fancy -->
+            <xs:element name="descripcion" type="xs:string"/>
+
+            <!-- Ruta de la imagen (supongo que será un string siempre...) -->
+            <xs:element name="imagen" type="xs:string"/>
+
+            <!-- Nivel del juego -->
+            <xs:element name="nivel" type="tipoNivel"/>
+
+            <!-- Esto lo dejé como string porque a veces pongo "10h+" o cosas así -->
+            <xs:element name="horas" type="xs:string"/>
+
+            <!-- Categoría o ritmo del juego -->
+            <xs:element name="categoria" type="tipoCategoria"/>
+        </xs:sequence>
+
+        <!-- ID obligatorio, aunque no validé formato ni nada todavía -->
+        <xs:attribute name="id" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <!-- Tipo para el nivel de dificultad -->
+    <xs:simpleType name="tipoNivel">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="principiante"/>
+            <xs:enumeration value="intermedio"/>
+            <xs:enumeration value="avanzado"/>
+            <!-- quizá añadir "experto" más adelante -->
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Tipo para categoría/ritmo -->
+    <xs:simpleType name="tipoCategoria">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Lento"/>
+            <xs:enumeration value="Normal"/>
+            <xs:enumeration value="Frenetico"/>
+            <!-- dudé entre "Frenético" con tilde pero lo dejé así por compatibilidad -->
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!--
+    Nota: pensé en separar esto en varios schemas pero me dio pereza por ahora.
+    Si crece mucho, mejor modularizar.
+    -->
+
+</xs:schema>

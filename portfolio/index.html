@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio de Marcos Luján Miguel, programador y entusiasta de la informatica y los videojuegos, 
+        además de friki empedernido" />
+    <title>Portfolio Marcos Luján</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="splash-screen" class="splash-screen">
+        <div class="arcade-container">
+            <img src="img/arcade.jpg" alt="Máquina Arcade Portfolio Marcos Luján" class="arcade-machine">
+            <p class="splash-text">Click para continuar</p>
+        </div>
+    </div>
+
+<!--Cabecera-->
+    <header>
+        <nav>
+            <h1><a href="index.html">Marcos Luján Miguel</a></h1>
+            
+            <button class="hamburger" id="hamburger-menu" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#descripcion" target="_self">Sobre mí</a></li>
+                <li><a href="#proyectos" target="_self">Proyectos</a></li>
+                <li><a href="#contacto" target="_self">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+<!-- Sección hero -->
+        <section class="hero">
+             <div class="hero-content">
+                    <h2>¡Hola, soy Marcos Luján Miguel!</h2>
+                    <p>Programador y entusiasta de la informática y los videojuegos</p>
+                </div>
+            <img src="img/programador_hero.gif" alt="Imagen de fondo" class="hero-image">
+               
+        </section>
+
+
+<!-- Descripción -->
+        <aside>
+            <article>
+                <img src="img/windows_mp2000_cabeza.png" alt="Foto de perfil" />
+            </article>
+
+            <article>
+
+                <h2 id="descripcion">Sobre mí</h2>
+                <p>Bienvenidos a mi portfolio, soy Marcos Luján Miguel, programador y entusiasta de la informatica y los
+                    videojuegos,
+                    y como se puede apreciar, de el estilo de los 2000. Además de ser un friki empedernido.
+                </p>
+                <p>
+                    Actualmente soy un estudiante con muchas ganas de aprender y crecer en el mundo de la programación.
+                </p>
+
+            </article>
+
+        </aside>
+
+<!-- Proyectos -->
+        <section class="projects-section">
+            <h2 id="proyectos">Proyectos</h2>
+            <div class="projects-grid" id="projects-grid">
+                <p class="loading-text">Cargando proyectos...</p>
+            </div>
+        </section>
+
+<!-- Contacto -->
+        <section >
+            <h2 id="contacto">Contacta conmigo</h2>
+
+            <form id="formulario" action="https://formsubmit.co/marcoslujanmiguel112@gmail.com" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                </div>
+                <div class="buttons">
+                    <button type="submit" class="btnEnviar">Enviar</button>
+                </div>
+                
+            </form>
+        </section>
+
+    </main>
+
+<!--Footer-->
+    <footer>
+        <ul>
+            <li><a href="https://github.com/marcoslujan">Github</a></li>
+            <li><a href="https://www.instagram.com/__mlujan__/">Instagram</a></li>
+            <li><a href="https://www.linkedin.com/in/marcos-lujan-miguel-a041a9362/">Linkedin</a></li>
+        </ul>
+
+        <span>&#9400; Marcos Luján Miguel</span>
+    </footer>
+
+    <!-- Modal para proyectos -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body">
+          
+            </div>
+        </div>
+    </div>
+
+ 
+    <script>
+        // Script para el menú hamburguesa
+        const hamburger = document.getElementById('hamburger-menu');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Cerrar menú cuando se hace clic en un enlace
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+
+        //Script para la imagen de inicio
+        const splashScreen = document.getElementById('splash-screen');
+        let scrollAmount = 0;
+        const scrollThreshold = 100;
+        let isClosing = false;
+
+
+        function closeSplashScreen() {
+            if (!isClosing) {
+                isClosing = true;
+                splashScreen.classList.add('fade-out');
+
+                setTimeout(() => {
+                    splashScreen.style.display = 'none';
+                }, 1000);
+            }
+        }
+
+
+        splashScreen.addEventListener('click', closeSplashScreen);
+
+        // Al mover la rueda del ratón
+        window.addEventListener('wheel', (e) => {
+            if (!isClosing && splashScreen.style.display !== 'none') {
+                scrollAmount += Math.abs(e.deltaY);
+
+                // Calcular la opacidad basada en el scroll (de 1 a 0)
+                const opacity = Math.max(0, 1 - (scrollAmount / scrollThreshold));
+                splashScreen.style.opacity = opacity;
+
+                // Si se alcanza el threshold, cerrar completamente
+                if (scrollAmount >= scrollThreshold) {
+                    closeSplashScreen();
+                }
+            }
+        }, { passive: true });
+
+        // Cerrar con ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !isClosing) {
+                closeSplashScreen();
+            }
+        });
+    
+    //Script para las tarjetas de los proyectos
+        const modal = document.getElementById('project-modal');
+        const modalBody = document.getElementById('modal-body');
+        const closeBtn = document.querySelector('.close');
+
+        function openModal(content) {
+            modalBody.innerHTML = content;
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            modal.style.display = 'none';
+        }
+
+        closeBtn.onclick = closeModal;
+
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
+
+        async function cargarProyectos() {
+            const container = document.getElementById('projects-grid');
+            try {
+                const response = await fetch('data/data.xml');
+                if (!response.ok) throw new Error('No se pudo cargar el XML');
+                const xmlText = await response.text();
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(xmlText, 'application/xml');
+                const proyectos = xml.querySelectorAll('proyecto');
+                container.innerHTML = '';
+
+                if (proyectos.length === 0) {
+                    container.innerHTML = '<p class="loading-text">No hay proyectos en el XML.</p>';
+                    return;
+                }
+
+                proyectos.forEach(proyecto => {
+                    const titulo = proyecto.querySelector('titulo')?.textContent?.trim() ?? 'Proyecto sin título';
+                    const descripcion = proyecto.querySelector('descripcion')?.textContent?.trim() ?? '';
+                    const imgTexto = proyecto.querySelector('img')?.textContent?.trim();
+                    const imagen = imgTexto ? `<div class="project-card-media"><img src="${imgTexto}" alt="${titulo}" loading="lazy"></div>` : '';
+
+                    const card = document.createElement('article');
+                    card.className = 'project-card';
+                    card.innerHTML = `
+                        ${imagen}
+                        <div class="project-card-body">
+                            <h3>${titulo}</h3>
+                            <p>${descripcion}</p>
+                        </div>
+                    `;
+
+                    // Agregar event listener para abrir modal
+                    card.addEventListener('click', () => {
+                        let content = `<h3>${titulo}</h3><p>${descripcion}</p>`;
+                        if (titulo === 'Hollow Knight wiki') {
+                            content += `<button onclick="window.open('assets/Hollow_Knight_Marcos_Luján/Marcos_Luján_Hollow_Knight.html', '_blank')">Open</button>`;
+                        } else if (titulo === 'Colección Dark Souls') {
+                            content += `<button onclick="window.open('assets/proyecto_final_Dark_Souls/index.html', '_blank')">Open</button>`;
+                        } else if (titulo === 'Gestor de películas') {
+                            content += `<video controls autoplay muted><source src="img/2026-04-19 20-08-46.mp4" type="video/mp4">Tu navegador no soporta el elemento de video.</video>`;
+                        } else if (titulo === 'Gestor de reservas') {
+                            content += `<video controls autoplay muted><source src="img/2026-04-19 20-33-05.mp4" type="video/mp4">Tu navegador no soporta el elemento de video.</video>`;
+                        }
+                        openModal(content);
+                    });
+
+                    container.appendChild(card);
+                });
+            } catch (error) {
+                console.error(error);
+                container.innerHTML = '<p class="loading-text">Error al cargar los proyectos.</p>';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', cargarProyectos);
+    </script>
+
+</body>
+
+</html>

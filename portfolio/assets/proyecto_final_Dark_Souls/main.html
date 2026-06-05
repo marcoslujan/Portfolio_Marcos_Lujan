@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta viewport típico, no lo toqué mucho -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Proyecto Final</title>
+
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="styles/main.css">
+
+    <!-- JS (lo dejé con defer porque si no daba problemas antes) -->
+    <script src="script/script.js" defer></script>
+</head>
+
+<body class="body-grid">
+
+    <!-- Header principal -->
+    <header class="header">
+        <div class="header-top">
+
+            <!-- Título / logo (igual luego lo cambio por imagen) -->
+            <div class="logo">
+                <a href="index.html">
+                Lista de Juegos de la Saga Souls
+                </a>
+            </div>
+
+            <!-- Botones de arriba -->
+            <div class="header-controls">
+                <button id="botonTema" class="temaBtn" title="Cambiar tema">
+                    🌙
+                </button>
+
+                <!-- Botón para añadir tarjeta -->
+                <button id="anadirCartaBtn" class="anadirBtn" title="Añadir nueva tarjeta">
+                    ➕ Añadir tarjeta
+                </button>
+            </div>
+        </div>
+
+        <!-- Barra de búsqueda -->
+        <div class="barraBuscar">
+            <input
+                type="text"
+                id="inputBusqueda"
+                class="busquedah-input"
+                placeholder="Buscar por título..."
+                aria-label="Buscar tarjetas"
+            >
+
+            <button id="btnBuscar" class="buscarBtn">
+                🔍 Buscar
+            </button>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="main-slide">
+
+        <!-- Aquí se pintan las tarjetas dinámicamente -->
+        <div id="contenedorCarta" class="cards-grid">
+            <!-- JS mete cosas aquí -->
+        </div>
+
+    </main>
+
+    <!-- Footer simple -->
+    <footer class="footer">
+        <p>
+            &copy; 2026 - Lista de juegos de la saga Souls y BloodBorne
+        </p>
+    </footer>
+
+
+    <!-- ========================= -->
+    <!-- MODAL DE TEMAS -->
+    <!-- ========================= -->
+    <div id="temaModal" class="modal">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2>Selector de Tema</h2>
+
+                <!-- Botón cerrar -->
+                <button class="btnCerrar" id="cerrarTemaModal">
+                    &times;
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <!-- Opciones básicas -->
+                <div class="opcionesTema">
+
+                    <button class="opcionTema" data-theme="modoClaro">
+                        <div class="vistaPreviaTema claro-preview"></div>
+                        <span>Modo Claro</span>
+                    </button>
+
+                    <button class="opcionTema" data-theme="modoOscuro">
+                        <div class="vistaPreviaTema oscuro-preview"></div>
+                        <span>Modo Oscuro</span>
+                    </button>
+
+                    <!-- Este activa la parte de personalización -->
+                    <button class="opcionTema" id="botonTemaPersonalizado">
+                        <div class="vistaPreviaTema personalizado-preview"></div>
+                        <span>Personalizado</span>
+                    </button>
+
+                </div>
+
+                <!-- Personalización (oculta al inicio) -->
+                <div id="seccionCustomizacion" class="seccion-customizacion hidden">
+
+                    <h3>Personalizar Colores</h3>
+
+                    <!-- Color header -->
+                    <div class="color-picker-group">
+                        <label for="colorEncabezado">Color del Header:</label>
+                        <input type="color" id="colorEncabezado" value="#ffffff">
+                    </div>
+
+                    <!-- Color main -->
+                    <div class="color-picker-group">
+                        <label for="colorMain">Color del Main:</label>
+                        <input type="color" id="colorMain" value="#f5f5f5">
+                    </div>
+
+                    <!-- Color footer -->
+                    <div class="color-picker-group">
+                        <label for="colorFooter">Color del Footer:</label>
+                        <input type="color" id="colorFooter" value="#ffffff">
+                    </div>
+
+                    <!-- Fondo personalizado -->
+                    <h3>Fondo personalizado</h3>
+
+                    <div class="color-picker-group">
+                        <label for="fondoPersonalizadoURL">URL de fondo:</label>
+                        <input type="text" id="fondoPersonalizadoURL" placeholder="https://...">
+                    </div>
+
+                    <!-- Subir archivo -->
+                    <div class="color-picker-group">
+                        <label for="fondoPersonalizadoFile">O subir archivo:</label>
+                        <input type="file" id="fondoPersonalizadoFile" accept="image/*">
+                    </div>
+
+                    <!-- Preview -->
+                    <div class="color-picker-group">
+                        <img
+                            id="fondoPersonalizadoPreview"
+                            class="preview-imagen oculto"
+                            alt="Vista previa fondo"
+                            style="max-width:100%; max-height:80px; border:1px solid var(--border-color);"
+                        >
+                    </div>
+
+                    <!-- Botón limpiar -->
+                    <div class="color-picker-group">
+                        <button
+                            id="limpiarFondoPersonalizado"
+                            class="cancel-btn"
+                            type="button"
+                        >
+                            Eliminar Fondo
+                        </button>
+                    </div>
+
+                    <!-- Aplicar -->
+                    <button id="aplicarTemaPersonalizado" class="apply-btn">
+                        Aplicar Colores
+                    </button>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ========================= -->
+    <!-- MODAL AÑADIR TARJETA -->
+    <!-- ========================= -->
+    <div id="modalAnadirCarta" class="modal">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2>Añadir Nueva Tarjeta</h2>
+
+                <button class="btnCerrar" id="cerrarModalAnadir">
+                    &times;
+                </button>
+            </div>
+
+            <div class="modal-body">
+
+                <!-- Formulario -->
+                <form id="formularioAnadirCarta">
+
+                    <!-- Título -->
+                    <div class="form-group">
+                        <label for="cartaTitulo">Título:</label>
+                        <input type="text" id="cartaTitulo" name="titulo" placeholder="Ingresa el título" required maxlength="50"
+                        >
+                    </div>
+
+                    <!-- Descripción -->
+                    <div class="form-group">
+                        <label for="cartaDescripcion">Descripción:</label>
+                        <textarea id="cartaDescripcion" name="descripcion" rows="4" placeholder="Ingresa la descripción" required maxlength="300">
+                        </textarea>
+                    </div>
+
+                    <!-- Imagen -->
+                    <div class="form-group">
+                        <label for="imagenCarta">Imagen:</label>
+
+                        <div class="file-input-wrapper">
+                            <input type="file" id="imagenCarta" name="imagen" accept="image/*" required>
+                            <span id="nombreArchivo">
+                                Ningún archivo seleccionado
+                            </span>
+                        </div>
+
+                        <!-- Preview -->
+                        <img id="PreviewImagen" class="preview-imagen oculto" alt="Vista previa">
+                    </div>
+
+                    <!-- Nivel -->
+                    <div class="form-group">
+                        <label for="cartaNivel">Nivel:</label>
+                        <select id="cartaNivel" name="nivel" required>
+                            <option value="principiante">Principiante</option>
+                            <option value="intermedio">Intermedio</option>
+                            <option value="avanzado">Avanzado</option>
+                        </select>
+                    </div>
+
+                    <!-- Categoría -->
+                    <div class="form-group">
+                        <label for="cartaCategoria">Categoría:</label>
+                        <select id="cartaCategoria" name="categoria" required>
+                            <option value="Lento">Lento</option>
+                            <option value="Normal">Normal</option>
+                            <option value="Frenetico">Frenetico</option>
+                        </select>
+                    </div>
+
+                    <!-- Horas -->
+                    <div class="form-group">
+                        <label for="cartaHoras">Horas estimadas:</label>
+                        <input
+                            type="text"
+                            id="cartaHoras"
+                            name="hours"
+                            placeholder="ej: 30-40"
+                            required
+                            maxlength="20"
+                        >
+                    </div>
+
+                    <!-- Botones -->
+                    <div class="modal-buttons">
+                        <button type="submit" class="btnSubir">
+                            Crear Tarjeta
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nota mental:
+         revisar accesibilidad y labels... ahora mismo funciona pero podría mejorar -->
+</body>
+
+</html>

@@ -1,0 +1,142 @@
+/* Header principal - lo hice bastante simple de momento */
+.claseHeader {
+    background-color: #4d3e35;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 2);
+    /* creo que este 2 es un poco alto pero funciona */
+    color: white;
+    padding: 20px;
+    text-align: center;
+
+    font-family: 'OptimusPrinceps regular';
+    /* revisar si carga bien en todos lados */
+}
+
+/* Body general - aquí igual me pasé copiando cosas */
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+    /* no quería scroll aquí */
+    background-image: url('../img/salaireGrachiochillo.gif');
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+
+    height: 100vh;
+    /* redundante con lo de arriba pero lo dejo */
+    margin: 0;
+    /* esto está repetido pero bueno */
+}
+
+/* Botón principal (el que rebota rollo DVD) */
+.button {
+    position: absolute;
+
+    width: 450px;
+    height: 150px;
+
+    padding: 25px;
+    font-size: 40px;
+    font-weight: bold;
+
+    color: white;
+    background-size: cover;
+
+    border: none;
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    /* Animaciones - podría optimizar esto pero meh */
+    animation:
+        dvd-x 10s linear infinite alternate,
+        dvd-y 8s linear infinite alternate,
+        image-change 15s linear infinite;
+}
+
+/* Texto dentro del botón */
+button a {
+    color: rgb(161, 17, 17);
+    /* igual muy rojo? */
+    text-align: center;
+    text-decoration: none;
+
+    font-family: 'Optimus Princeps Semibold', 'Optimus Princeps Regular', serif;
+    font-weight: 600;
+
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+/* Hover del botón */
+.button a:hover {
+    opacity: 0.7;
+    transform: scale(1.05);
+    /* pequeño zoom */
+}
+
+/* Footer básico */
+footer {
+    color: white;
+    text-align: center;
+
+    padding: 10px;
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Movimiento horizontal */
+@keyframes dvd-x {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: calc(100% - 450px);
+    }
+
+    /* uso el ancho del botón directamente */
+}
+
+/* Movimiento vertical */
+@keyframes dvd-y {
+    from {
+        top: 0;
+    }
+
+    to {
+        top: calc(100% - 150px);
+    }
+
+    /* igual aquí */
+}
+
+/* Cambio de fondo del botón */
+@keyframes image-change {
+    0% {
+        background-image: url("../img/artorias.jpg");
+    }
+
+    33% {
+        background-image: url("../img/darkS2.jpg");
+    }
+
+    /* redondeé un poco */
+    66% {
+        background-image: url("../img/fondoDarkSouls.jpg");
+    }
+
+    100% {
+        background-image: url("../img/artorias.jpg");
+    }
+}
+
+/* Pensé en añadir más imágenes pero lo dejo así por ahora */

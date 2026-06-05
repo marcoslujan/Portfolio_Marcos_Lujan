@@ -1,0 +1,124 @@
+body{
+    background-size:cover;
+    color: white;
+    font-family:'Times New Roman', Times, serif;
+    text-align: justify;
+}
+
+header img{
+    margin-left: 28%;
+   
+}
+#HollowKnight ul li{
+    display: inline;
+    background-color: rgb(51, 51, 99);
+    border: solid rgb(80, 80, 107);
+    font-size: large;
+   }
+#HollowKnight nav{
+    text-align:center;
+}
+#HollowKnight a{
+    text-decoration: none;
+    color: white;
+    padding-left: 8% ; padding-right: 8%;
+}
+
+#Hollowaside{
+    width: 20%;
+    float: left;
+
+}
+
+#Hollowaside h3 {
+    margin-left: 13%;
+    color:  white;
+    font-family: 'kommissar';
+    font-size: xx-large;
+    margin-bottom: 10%;
+    margin-top: 10%;
+}
+#Hollowaside hr{
+    margin-left: 13%;
+    width:90% ;
+}
+#Hollowaside p{
+    margin-left: 16%;
+   
+}
+
+#Hollowaside ul{
+    border:solid; 
+    border-width: thin;
+    background-color:  rgb(54, 54, 54);
+    opacity: 90%;
+    padding: 1.5%;
+    margin-left: 16%;
+    text-align: center;
+}
+#Hollowaside li {
+    display: block;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+#Hollowaside a{
+    text-decoration: none;
+    color: white;
+}
+
+#Hollowaside img {
+    margin-top: 15%;
+    margin-left: 15%;
+    width: 100%;
+    border: double;
+    border-width: thick;
+    border-color: black;
+}
+
+iframe {
+    width:120%;
+    margin-left: 15%;
+    margin-top: 15%;
+}
+
+#Hollowsection {
+    margin-right: 6%;
+    margin-left: 30%;
+    margin-bottom: 5%;
+}
+
+#Hollowsection h3 {
+    color:  white;
+    font-family: 'kommissar';
+    font-size: xx-large;
+    margin-bottom: 2.5%;
+    margin-top: 5%;
+}
+
+#Hollowsection  p{
+    margin-left: 2%;
+}
+#Hollowsection h4{
+    margin-left: 1%;
+    font-size: x-large;
+}
+
+footer {
+    background-color: rgb(15, 15, 15);
+    margin: 0%;
+    padding: 1.5%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+footer ul, li{
+    display:inline;
+    list-style:none;
+    margin-right: 0.5%;
+}
+footer a{
+    text-decoration: none;
+    color:white;
+}
+footer span{
+    float: right;
+}
